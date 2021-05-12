@@ -1,0 +1,76 @@
+<head>
+	<title>Better Name Pending</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/public/styles/bootstrap.min.css">
+	<link rel="stylesheet" href="/public/styles/bootstrap-icons.css">
+</head>
+
+<body class="bg-dark h-100">
+	<nav class="navbar navbar-expand-md navbar-light bg-secondary container-fluid">
+		<button class="btn btn-outline-dark btn-lg" type="button" onclick="window.location.href='/'">BNP</button>
+		<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-options">
+			<i class="navbar-toggler-icon"></i>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbar-options">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item mx-1">
+					<button class="btn btn-outline-dark btn-white" type="button" onclick="window.location.href='/games'">
+						<i class="bi bi-controller"></i> Games
+					</button>
+				</li>
+
+				<li class="nav-item">
+					<button class="btn btn-outline-dark btn-white" type="button" onclick="window.location.href='/forums'">
+						<i class="bi bi-blockquote-left"></i> Forums
+					</button>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="bg-light container w-50 py-2">
+		<div class="d-flex justify-content-between">
+			<div class="container row">
+				<div class="col text-end border-end border-dark">
+					<h1 class="align-self-center text-center border-bottom">Sign Up</h1>
+					<form action='/signup' method='POST'>
+						<div class="my-2">
+							<label for='name'>Name</label>
+							<input type='text' id='name' name='name' required>
+						</div>
+						<div class="my-2">
+							<label for='email'>Email</label>
+							<input type='email' id='emailSignUp' name='email' required>
+						</div>
+						<div class="my-2">
+							<label for='password'>Password</label>
+							<input type='password' id='passwordSignUp' name='password' required>
+						</div>
+						<button type='submit'>Sign Up</button>	
+					</form>
+				</div>
+				<div class="col text-end border-start border-dark">
+					<h1 class="align-self-center text-center border-bottom">Login</h1>
+					<% if (messages.error) { %>
+						<%= messages.error %>
+					<% } %>
+					<form action='/login' method='POST'>
+						<div class="my-2">
+							<label for='email'>Email</label>
+							<input type='email' id='email' name='email' required>
+						</div>
+						<div class="my-2">
+							<label for='password'>Password</label>
+							<input type='password' id='password' name='password' required>
+						</div>
+						<button type='submit'>Login</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

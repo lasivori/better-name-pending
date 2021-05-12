@@ -1,0 +1,62 @@
+<head>
+	<title>Better Name Pending</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/public/styles/bootstrap.min.css">
+	<link rel="stylesheet" href="/public/styles/bootstrap-icons.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body class="bg-dark">
+	<nav class="navbar navbar-expand-md navbar-light bg-secondary container-fluid">
+		<button class="btn btn-outline-dark btn-lg" type="button" onclick="window.location.href='/'">BNP</button>
+		<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-options">
+			<i class="navbar-toggler-icon"></i>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbar-options">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item mx-1">
+					<button class="btn btn-outline-dark btn-white" type="button" onclick="window.location.href='/games'">
+						<i class="bi bi-controller"></i> Games
+					</button>
+				</li>
+
+				<li class="nav-item">
+					<% if (auth) { %>
+					<button class="btn btn-outline-dark btn-primary" type="button" onclick="window.location.href='/profile'">
+						<i class="bi"></i> Profile
+					</button>
+					<% } else { %>
+					<button class="btn btn-outline-dark btn-primary" type="button" onclick="window.location.href='/signup'">
+						<i class="bi"></i> Sign Up/Login
+					</button>
+					<% } %>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="bg-light container w-50 py-2" id="data" data-threaddata=<%- data %>>
+		<a class="btn btn-dark" href="../forums"><-- Back</a>
+		<div id="threadStart" class="container">
+		</div>
+		<hr>
+		<div id="comments" class="container">
+		</div>
+		<div id="addComment" class="container my-4 pb-4">
+			<form action='/addcomment' method='POST'>
+				<input type="hidden" name="thread_id" value=<%= id %>>
+				<textarea name="text" class="w-100" placeholder="Want to add a comment? Put it here!"></textarea>
+				<button class="btn btn-primary my-2 float-end" type="submit">Submit</button>
+			</form>
+		</div>
+	</div>
+	
+	<script src="/public/scripts/data.js"></script>
+	<script src="/public/scripts/getThreadContent.js"></script>
+</body>

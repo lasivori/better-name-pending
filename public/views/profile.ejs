@@ -1,0 +1,48 @@
+<head>
+	<title>Better Name Pending</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/public/styles/bootstrap.min.css">
+	<link rel="stylesheet" href="/public/styles/bootstrap-icons.css">
+</head>
+
+<body class="bg-dark h-100">
+	<nav class="navbar navbar-expand-md navbar-light bg-secondary container-fluid">
+		<button class="btn btn-outline-dark btn-lg" type="button" onclick="window.location.href='/'">BNP</button>
+		<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-options">
+			<i class="navbar-toggler-icon"></i>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbar-options">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item mx-1">
+					<button class="btn btn-outline-dark btn-white" type="button" onclick="window.location.href='/games'">
+						<i class="bi bi-controller"></i> Games
+					</button>
+				</li>
+
+				<li class="nav-item">
+					<button class="btn btn-outline-dark btn-white" type="button" onclick="window.location.href='/forums'">
+						<i class="bi bi-blockquote-left"></i> Forums
+					</button>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="bg-light container w-50 py-2">
+		<div class="d-flex justify-content-between">
+			<div class="container row">
+				<h1>Profile</h1>
+				<div class="col">
+					<p>Aight, imma be honest, I didn't get to this part yet. There'll be stuff here, eventually</p>
+				</div>
+				<form action="/logout" method="POST">
+					<button class="btn btn-primary my-2 float-end" type="submit">Logout</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,60 @@
+<head>
+	<title>Better Name Pending</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/public/styles/bootstrap.min.css">
+	<link rel="stylesheet" href="/public/styles/bootstrap-icons.css">
+</head>
+
+<body class="bg-dark">
+	<nav class="navbar navbar-expand-md navbar-light bg-secondary container-fluid">
+		<button class="btn btn-outline-dark btn-lg" type="button" onclick="window.location.href='/'">BNP</button>
+		<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-options">
+			<i class="navbar-toggler-icon"></i>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbar-options">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item mx-1">
+					<button class="btn btn-outline-dark btn-white" type="button" onclick="window.location.href='/forums'">
+						<i class="bi bi-blockquote-left"></i> Forums
+					</button>
+				</li>
+
+				<li class="nav-item">
+					<% if (auth) { %>
+					<button class="btn btn-outline-dark btn-primary" type="button" onclick="window.location.href='/profile'">
+						<i class="bi"></i> Profile
+					</button>
+					<% } else { %>
+					<button class="btn btn-outline-dark btn-primary" type="button" onclick="window.location.href='/signup'">
+						<i class="bi"></i> Sign Up/Login
+					</button>
+					<% } %>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="bg-light container w-50 py-2" id="data" data-gamedata=<%- data %>>
+		<a class="btn btn-dark" href="../games"><-- Back</a>
+		<div id="container" class="container">
+			<hr>
+			<h5>Reviews</h5>
+			<div id="reviews">
+			</div>
+			<br>
+			<div class="container mb-4 pb-4">
+				<form action='/addreview' method='POST'>
+					<input type="hidden" name="game_id" value=<%= id %>>
+					<textarea name="text" class="w-100" placeholder="Want to add a Review? Put it here!"></textarea>
+					<button class="btn btn-primary my-2 float-end" type="submit">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="/public/scripts/getGameContent.js"></script>
+</body>

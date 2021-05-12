@@ -1,0 +1,93 @@
+<head>
+	<title>Better Name Pending</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/public/styles/bootstrap.min.css">
+	<link rel="stylesheet" href="/public/styles/bootstrap-icons.css">
+</head>
+
+<body class="bg-dark">
+	<nav class="navbar navbar-expand-md navbar-light bg-secondary container-fluid">
+		<button class="btn btn-outline-dark btn-lg" type="button" onclick="window.location.href='/'">BNP</button>
+		<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-options">
+			<i class="navbar-toggler-icon"></i>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbar-options">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item mx-1">
+					<button class="btn btn-outline-dark btn-white" type="button" onclick="window.location.href='/forums'">
+						<i class="bi bi-blockquote-left"></i> Forums
+					</button>
+				</li>
+
+				<li class="nav-item">
+					<% if (auth) { %>
+					<button class="btn btn-outline-dark btn-primary" type="button" onclick="window.location.href='/profile'">
+						<i class="bi"></i> Profile
+					</button>
+					<% } else { %>
+					<button class="btn btn-outline-dark btn-primary" type="button" onclick="window.location.href='/signup'">
+						<i class="bi"></i> Sign Up/Login
+					</button>
+					<% } %>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="bg-light container w-50 py-2">
+		<div class="d-flex justify-content-between">
+			<h1>Games</h1>
+			<button class="btn btn-outline-dark float-right" type="button" onclick="window.location.href='/addgame'">
+				Add Game
+			</button>
+		</div>
+		<hr>
+		<!-- sorting features -->
+		<div class="border border-light d-flex justify-content-start ml-2">
+			<p class="mx-2"><i class="bi bi-sort-down"></i> Sort by: </p>
+			<div>
+				<label class="btn btn-outline-dark mx-2" for="name">
+					<input class="btn-check" type="radio" id="name" name="sort" autocomplete="off"> name
+				</label>
+				
+				<label class="btn btn-outline-dark mx-2" for="date">
+					<input class="btn-check" type="radio" id="date" name="sort" autocomplete="off"> date added
+				</label>
+				
+			</div>
+		</div> 
+		<!-- searching features -->
+		<div class="w-100 h-10 bg-success d-flex justify-content-around">
+			<input class="form-control w-75" type="text" id="search" onkeyup="search()" placeholder="Search...">
+			<button class="btn btn-outline-light">Filter</button>
+		</div>
+		<!-- game container -->
+		<div id="game-container" class="container">
+			<div id="game-container-row" class="row">
+				<% for (var i = 0; i < data.rows.length; i++) { %>
+					<div id="game" class="bg-secondary text-center col-sm-4">
+						<img class="img-thumbnail img-fluid mt-2" src="/public/assets/randomgame.PNG">
+	
+						<div class="text-light">
+							<a class="text-dark text-decoration-none" href="/game/<%= data.rows[i].game_id%>">
+								<h5 id="title" class="text-dark"><%= data.rows[i].title %></h5>
+							</a>
+							<p> small description </p>
+							<small> tags </small>
+						</div>
+					</div>
+				<% } %>
+			</div>
+		</div>
+		<div class="card-group">
+			
+		</div>
+	</div>
+
+	<script src="/public/scripts/bootstrap.bundle.min.js"></script>
+	<script src="/public/scripts/gameSort.js"></script>
+</body>

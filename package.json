@@ -1,0 +1,28 @@
+{
+	"name": "better-name-pending",
+	"version": "1.0.0",
+	"description": "website to share games people made",
+	"main": "app.js",
+	"scripts": {
+		"start": "npm install && node app"
+	},
+	"author": "Louis Sivori",
+	"dependencies": {
+		"express": "*",
+		"ejs": "*",
+		"shortid": "*",
+		"express-session": "*",
+		"passport": "*",
+		"passport-local": "*",
+		"express-flash": "*",
+		"bcrypt": "*",
+		"dotenv": "*",
+		"pg": "*",
+		"cors": "*",
+		"aws-sdk": "*",
+		"uuid": "*",
+		"express-fileupload": "*",
+		"util": "*",
+		"fs": "*"
+	}
+}

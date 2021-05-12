@@ -1,0 +1,50 @@
+<head>
+	<title>Better Name Pending</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/public/styles/bootstrap.min.css">
+	<link rel="stylesheet" href="/public/styles/bootstrap-icons.css">
+</head>
+
+<body class="bg-dark">
+	<nav class="navbar navbar-expand-md navbar-light bg-secondary container-fluid">
+		<!-- <a class="navbar-brand" href="index.ejs"></a> -->
+		<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-options">
+			<i class="navbar-toggler-icon"></i>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbar-options">
+			<ul class="navbar-nav ms-auto">
+
+				<li class="nav-item">
+					<% if (auth) { %>
+					<button class="btn btn-outline-dark btn-primary" type="button" onclick="window.location.href='/profile'">
+						<i class="bi"></i> Profile
+					</button>
+					<% } else { %>
+					<button class="btn btn-outline-dark btn-primary" type="button" onclick="window.location.href='/signup'">
+						<i class="bi"></i> Sign Up/Login
+					</button>
+					<% } %>
+				</li>
+
+			</ul>
+		</div>
+	</nav>
+
+	<div class="position-relative container text-center vh-100 d-flex flex-column justify-content-center bg-light w-50">
+		<h1 class="display-2">Better Name Pending</h1>
+		<div>
+			<p>An Alternative to Game Hosting Websites, such as itch.io</p>
+			<button class="btn btn-outline-dark btn-lg btn-success" type="submit" onclick="window.location.href='/games'">
+				<i class="bi bi-controller"></i> Explore Games
+			</button>
+			<br>
+			<button class="btn btn-outline-dark mt-2" type="button" onclick="window.location.href='/forums'">
+				<i class="bi bi-blockquote-left"></i> Forums
+			</button>
+		</div>
+	</div>
+</body>
